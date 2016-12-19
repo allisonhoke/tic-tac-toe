@@ -11,10 +11,14 @@ describe('Game', function() {
 
     it ('has a playerOne', function() {
       expect(testGame.get('playerOne') instanceof(Player)).toEqual(true);
+      var pOne = testGame.get('playerOne').attributes;
+      expect(pOne.name).toEqual("Player One");
     });
 
     it ('has a playerTwo', function() {
       expect(testGame.get('playerTwo') instanceof(Player)).toEqual(true);
+      var pTwo = testGame.get('playerTwo').attributes;
+      expect(pTwo.name).toEqual("Player Two");
     });
 
     // it ('has a currentPlayer', function() {
