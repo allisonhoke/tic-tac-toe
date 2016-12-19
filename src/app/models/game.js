@@ -1,31 +1,35 @@
+import Backbone from 'backbone';
 import Player from 'app/models/player';
 import Board from 'app/models/board';
 
-var Game = function() {
-  this.turnCounter = 0;
-  this.playerOne = new Player();
-  this.playerTwo = new Player();
-  this.currentPlayer = this.playerOne;
-  this.board = new Board();
-};
 
-Game.prototype.togglePlayer = function() {
-  if (this.currentPlayer == this.playerOne) {
-    this.currentPlayer = this.playerTwo;
-  } else {
-    this.currentPlayer = this.playerOne;
-  }
-};
+const Game = Backbone.Model.extend({
+  defaults: {
+    turnCounter: 0,
+    playerOne: new Player({name: "Player One", mark: "X"}),
+    playerTwo: new Player({name: "Player Two", mark: "O"}),
+    // currentPlayer: this.get('playerOne'),
+    board: new Board()
+  },
 
-Game.prototype.setNames = function(nameOne, nameTwo) {
-  this.playerOne.name = nameOne;
-  this.playerTwo.name = nameTwo;
+  // togglePlayer: function() {
+  //   if (this.currentPlayer == this.playerOne) {
+  //     this.currentPlayer = this.playerTwo;
+  //   } else {
+  //     this.currentPlayer = this.playerOne;
+  //   }
+  // },
 
-};
+  // setNames: function(nameOne, nameTwo) {
+  //   this.playerOne.name = nameOne;
+  //   this.playerTwo.name = nameTwo;
+  // },
 
-Game.prototype.setMarks = function() {
-  this.playerOne.mark = "X";
-  this.playerTwo.mark = "O";
-};
-
+  // setMarks: function() {
+  //   var pOne = this.get('playerOne');
+  //   var pTwo = this.get('playerTwo');
+  //   pOne.mark = "X";
+  //   pTwo.mark = "O";
+  // }
+});
 export default Game;
