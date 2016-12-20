@@ -11,30 +11,16 @@ const Game = Backbone.Model.extend({
     this.currentPlayer = this.playerOne;
     this.board = new Board();
     console.log("Created a new game with players: " + this.playerOne.name + " & " + this.playerTwo.name + " & board: " + this.board.state);
+  },
+
+  togglePlayer: function() {
+    if (this.currentPlayer == this.playerOne) {
+      this.currentPlayer = this.playerTwo;
+      this.turnCounter++;
+    } else {
+      this.currentPlayer = this.playerOne;
+      this.turnCounter++;
+    }
   }
-
-  // newBoard: function() {
-  //   this.set({board: new Board()});
-  // }
-
-  // togglePlayer: function() {
-  //   if (this.currentPlayer == this.playerOne) {
-  //     this.currentPlayer = this.playerTwo;
-  //   } else {
-  //     this.currentPlayer = this.playerOne;
-  //   }
-  // },
-
-  // setNames: function(nameOne, nameTwo) {
-  //   this.playerOne.name = nameOne;
-  //   this.playerTwo.name = nameTwo;
-  // },
-
-  // setMarks: function() {
-  //   var pOne = this.get('playerOne');
-  //   var pTwo = this.get('playerTwo');
-  //   pOne.mark = "X";
-  //   pTwo.mark = "O";
-  // }
 });
 export default Game;

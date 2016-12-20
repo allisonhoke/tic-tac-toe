@@ -4,10 +4,10 @@ import $ from 'jquery';
 
 $(document).ready(function() {
   console.log("******PLAYING!!*****");
-  var newGame = new Game();
+  // var newGame = new Game();
   var currentGame = new GameView({
-    el: $('body'),
-    model: newGame
+    el: $('body')
+    // model: newGame
   });
   currentGame.render();
 });

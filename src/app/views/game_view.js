@@ -8,18 +8,28 @@ import BoardView from 'app/views/board_view';
 
 const GameView = Backbone.View.extend({
   initialize: function() {
+    this.model = new Game();
+
+    var gameViewModel = this.model;
+    console.log("MODEL" + this.model.board.state);
+
     this.board = new BoardView({
-      el: $('#game-board')
+      el: $('#game-board'),
+      model: gameViewModel
     });
+
+    this.board.render();
   },
 
   events: {
-    'click #new-game-button': 'createNewBoard'
+    'click #new-game-button': 'createNewGame'
   },
 
-  createNewBoard: function() {
+  createNewGame: function() {
     console.log("Created a new game");
-    var game = new Game(); //creates a board and players
+    this.model = new Game();
+    console.log(this.model.board.state);
+    //render something here
   }
 });
 

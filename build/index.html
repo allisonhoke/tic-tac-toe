@@ -4,6 +4,7 @@
     <title>Tic-Tac-Toe</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/foundation.css">
+    <!-- <link rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css" media="screen" title="no title"> -->
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body id="game-site">
@@ -23,12 +24,25 @@
       </ul>
     </section>
 
-    <main>
-      <ul id="game-board" class="row small-up-3">
-
-
-      </ul>
-    </main>
+    <main id="game-board">
+         <table id="game-table">
+           <tr id="row-one">
+             <td class="square" row="0" col="0"></td>
+             <td class="square v" row="0" col="1"></td>
+             <td class="square" row="0" col="2"></td>
+           </tr>
+           <tr id=row-two>
+             <td class="square h" row="1" col="0"></td>
+             <td class="square v h" row="1" col="1"></td>
+             <td class="square h" row="1" col="2"></td>
+           </tr>
+           <tr id="row-three">
+             <td class="square" row="2" col="0"></td>
+             <td class="square v" row="2" col="1"></td>
+             <td class="square" row="2" col="2"></td>
+           </tr>
+         </table>
+       </main>
 
     <script type="text/template" id="tmpl-cell-rendering">
       <li class="column cell-rendering">
