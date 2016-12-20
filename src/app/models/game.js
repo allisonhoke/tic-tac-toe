@@ -10,6 +10,7 @@ const Game = Backbone.Model.extend({
     this.playerTwo = new Player({name: "Player Two", mark: "O"});
     this.currentPlayer = this.playerOne;
     this.board = new Board();
+    this.won = false;
     console.log("Created a new game with players: " + this.playerOne.name + " & " + this.playerTwo.name + " & board: " + this.board.state);
   },
 
