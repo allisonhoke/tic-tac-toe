@@ -16,6 +16,7 @@ const BoardView = Backbone.View.extend({
     for(var i = 0; i < 3; i++) {
       for(var j = 0; j < 3; j++) {
         var cell = new CellView({
+          model: cell,
           row: i,
           column: j,
           template: this.cellTemplate
@@ -30,6 +31,7 @@ const BoardView = Backbone.View.extend({
 
   setMarker: function() {
     console.log("MARKER SET");
+    this.$el.css('')
   },
 
   render: function() {
@@ -42,5 +44,3 @@ const BoardView = Backbone.View.extend({
 });
 
 export default BoardView;
-
-//set a listener on each cell when we create it

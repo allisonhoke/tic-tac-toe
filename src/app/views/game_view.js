@@ -18,7 +18,8 @@ const GameView = Backbone.View.extend({
   },
 
   createNewBoard: function() {
-    console.log("New Board Created!");
+    console.log("Created a new game");
+    var game = new Game(); //creates a board and players
   }
 });
 

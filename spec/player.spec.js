@@ -10,21 +10,7 @@ describe('Player', function() {
       expect(testPlayer.get('mark')).toEqual(null);
     });
     it ('should have a turn attribute of false', function() {
-      expect(testPlayer.get('turn')).toEqual(false);
-    });
-  });
-
-  describe('setName', function() {
-    it ('should set the name', function() {
-      testPlayer.setName("Allison");
-      expect(testPlayer.name).toEqual("Allison");
-    });
-  });
-
-  describe('setMark', function() {
-    it ('should set the mark', function() {
-      testPlayer.setMark("X");
-      expect(testPlayer.mark).toEqual("X");
+      expect(testPlayer.turn).toEqual(false);
     });
   });
 

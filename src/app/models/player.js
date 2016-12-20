@@ -3,16 +3,11 @@ import Backbone from 'backbone';
 const Player = Backbone.Model.extend({
   defaults: {
     name: null,
-    mark: null,
-    turn: false
+    mark: null
   },
 
-  setName: function(name) {
-    this.name = name;
-  },
-
-  setMark: function(mark) {
-    this.mark = mark;
+  initialize: function() {
+    this.turn = false;
   },
 
   setTurnFalse: function() {

@@ -6,19 +6,17 @@ describe('Game', function() {
   var testGame = new Game();
   describe('initial attributes', function(){
     it ("turn counter should have an initial value of 0", function(){
-      expect(testGame.get('turnCounter')).toEqual(0);
+      expect(testGame.turnCounter).toEqual(0);
     });
 
     it ('has a playerOne', function() {
-      expect(testGame.get('playerOne') instanceof(Player)).toEqual(true);
-      var pOne = testGame.get('playerOne').attributes;
-      expect(pOne.name).toEqual("Player One");
+      expect(testGame.playerOne instanceof(Player)).toEqual(true);
+      expect(testGame.playerOne.get('name')).toEqual("Player One");
     });
 
     it ('has a playerTwo', function() {
-      expect(testGame.get('playerTwo') instanceof(Player)).toEqual(true);
-      var pTwo = testGame.get('playerTwo').attributes;
-      expect(pTwo.name).toEqual("Player Two");
+      expect(testGame.playerTwo instanceof(Player)).toEqual(true);
+      expect(testGame.playerTwo.get('name')).toEqual("Player Two");
     });
 
     // it ('has a currentPlayer', function() {
@@ -26,7 +24,7 @@ describe('Game', function() {
     // });
 
     it ('has a board', function() {
-      expect(testGame.get('board') instanceof(Board)).toEqual(true);
+      expect(testGame.board instanceof(Board)).toEqual(true);
     });
   });
 
