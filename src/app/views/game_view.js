@@ -8,17 +8,9 @@ import BoardView from 'app/views/board_view';
 
 const GameView = Backbone.View.extend({
   initialize: function() {
-    this.model = new Game();
-
-    var gameViewModel = this.model;
-    console.log("MODEL" + this.model.board.state);
-
-    this.board = new BoardView({
-      el: $('#game-board'),
-      model: gameViewModel
-    });
-
-    this.board.render();
+    this.model = null;
+    this.board = null;
+    $('#game-board').hide();
   },
 
   events: {
@@ -26,10 +18,22 @@ const GameView = Backbone.View.extend({
   },
 
   createNewGame: function() {
-    console.log("Created a new game");
+    $('#game-board').show();
+    // console.log("Created a new game");
     this.model = new Game();
-    console.log(this.model.board.state);
-    //render something here
+    // console.log(this.model.board.state);
+    this.createNewBoard(this.model);
+  },
+
+  createNewBoard: function(mod) {
+    this.board = new BoardView({
+      el: $('#game-board'),
+      model: mod
+    });
+
+    $('td').each(function() {
+      $(this).empty();
+    });
   }
 });
 
