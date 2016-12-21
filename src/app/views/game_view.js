@@ -22,13 +22,14 @@ const GameView = Backbone.View.extend({
     // console.log("Created a new game");
     this.currentGame = new Game();
     // console.log(this.model.board.state);
-    this.createNewBoard(this.currentGame);
+    this.createNewBoard(this.currentGame, this.model);
   },
 
-  createNewBoard: function(mod) {
+  createNewBoard: function(mod, coll) {
     this.boardView = new BoardView({
       el: $('#game-board'),
       model: mod,
+      collection: coll
     });
 
     $('td').each(function() {
@@ -38,17 +39,17 @@ const GameView = Backbone.View.extend({
 
   createGameForCollection: function(game) {
   console.log("========END GAME TRIGGERED=======");
-  event.preventDefault();
+  // event.preventDefault();
 
   // Get the input data from the form and turn it into a contact
-  var rawGame = {
-    board: flatten(game.gameBoard.state),
-    players: [game.playerOne.get('name'), game.playerTwo.get('name')],
-    outcome: game.gameOutcome
-  };
-
-  //add the contact to our collection
-  this.model.add(rawGame);
+  // var rawGame = {
+  //   board: flatten(game.gameBoard.state),
+  //   players: [game.playerOne.get('name'), game.playerTwo.get('name')],
+  //   outcome: game.gameOutcome
+  // };
+  //
+  // //add the contact to our collection
+  // this.model.add(rawGame);
 },
 });
 

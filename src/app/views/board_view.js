@@ -7,7 +7,7 @@ import _ from 'underscore';
 const BoardView = Backbone.View.extend({
   initialize: function() {
     console.log("Made a BoardView!!!");
-    console.log("MODEL ====" + this.model.gameBoard.state);
+    //this.collection = the collection we wnat to save to
   },
 
   events: {
@@ -32,7 +32,14 @@ const BoardView = Backbone.View.extend({
         this.model.gameOutcome = winner.get('mark');
         console.log("OUTCOME IS: " + this.model.gameOutcome);
 
-        this.trigger('endGame', this.model);
+        var rawGame = {
+          board: flatten(this.model.gameBoard.state),
+          players: [this.model.playerOne.get('name'), this.model.playerTwo.get('name')],
+          outcome: this.model.gameOutcome
+        };
+
+        this.collection.create(rawGame);
+        // this.trigger('endGame', this.model);
       }
       //change the player and increment turn counter
       this.model.togglePlayer();
@@ -43,7 +50,7 @@ const BoardView = Backbone.View.extend({
         this.model.gameOutcome = "draw";
         console.log("OUTCOME IS: " + this.model.gameOutcome);
 
-        this.trigger('endGame', this.model);
+        // this.trigger('endGame', this.model);
       }
 
     }

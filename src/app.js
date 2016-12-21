@@ -16,4 +16,6 @@ $(document).ready(function() {
 
   var currentGame = new GameView(options);
   currentGame.render();
+
+  var applicationView = new GameCollectionView(
 });
