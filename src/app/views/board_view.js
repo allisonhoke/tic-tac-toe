@@ -20,7 +20,7 @@ const BoardView = Backbone.View.extend({
     var eRow = e.currentTarget.attributes.row.value;
     var eColumn = e.currentTarget.attributes.col.value;
 
-    if (!this.model.won && this.model.board.isAvailable(eRow, eColumn)) {
+    if (!this.model.won && this.model.board.isAvailable(eRow, eColumn) && this.model.turnCounter < 9) {
       this.model.board.makeMove(eRow, eColumn, this.model.currentPlayer.get('mark'));
       $(space).html(this.model.currentPlayer.get('mark'));
 
@@ -30,8 +30,14 @@ const BoardView = Backbone.View.extend({
         this.model.won = true;
         alert(winner + " wins!!!!!");
       }
-
+      //change the player and increment turn counter
       this.model.togglePlayer();
+
+      //if board is full and no one has won, call stalemate
+      if (this.model.turnCounter == 9 && !this.model.won) {
+        alert("STALEMATE!");
+      }
+
     }
 
     console.log(this.model.board.state);

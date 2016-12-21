@@ -1,26 +1,27 @@
 h1 {
-  color: red;
+  background-color: lightyellow;
 }
 
 section {
-  background-color: teal;
+  background-color: lightgreen;
 }
 
 ul {
   list-style: none;
 }
 
-#game-board {
-  background-color: beige;
-  margin: 15%;
-
+li {
+  font-size: 2em;
+  text-align: center;
 }
 
-#game-board li {
-  background-color: magenta;
-  border: 2px solid black;
-  height: 180px;
-  width: 180px;
+td {
+  font-size: 3em;
+  text-align: center;
+}
+
+body {
+  margin: 2em;
 }
 
 .square {
