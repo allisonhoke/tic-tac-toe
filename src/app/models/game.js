@@ -4,14 +4,21 @@ import Board from 'app/models/board';
 
 
 const Game = Backbone.Model.extend({
+  defaults: {
+    board: null,
+    players: null,
+    outcome: null
+  },
+
   initialize: function() {
     this.turnCounter = 0;
-    this.playerOne = new Player({name: "Player One", mark: "X"});
-    this.playerTwo = new Player({name: "Player Two", mark: "O"});
+    this.playerOne = new Player({name: "Player X", mark: "X"});
+    this.playerTwo = new Player({name: "Player O", mark: "O"});
     this.currentPlayer = this.playerOne;
-    this.board = new Board();
+    this.gameBoard = new Board();
     this.won = false;
-    console.log("Created a new game with players: " + this.playerOne.name + " & " + this.playerTwo.name + " & board: " + this.board.state);
+    this.gameOutcome = null;
+    console.log("Created a new game with players: " + this.playerOne.name + " & " + this.playerTwo.name + " & board: " + this.gameBoard.state);
   },
 
   togglePlayer: function() {

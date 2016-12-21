@@ -5,18 +5,18 @@ const Player = Backbone.Model.extend({
     name: null,
     mark: null
   },
-
-  initialize: function() {
-    this.turn = false;
-  },
-
-  setTurnFalse: function() {
-    this.turn = false;
-  },
-
-  setTurnTrue: function() {
-    this.turn = true;
-  }
+  //
+  // initialize: function() {
+  //   this.turn = false;
+  // },
+  // 
+  // setTurnFalse: function() {
+  //   this.turn = false;
+  // },
+  //
+  // setTurnTrue: function() {
+  //   this.turn = true;
+  // }
 });
 
 export default Player;
