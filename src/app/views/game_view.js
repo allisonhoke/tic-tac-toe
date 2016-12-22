@@ -7,12 +7,8 @@ import BoardView from 'app/views/board_view';
 const GameView = Backbone.View.extend({
   initialize: function() {
     //this.model = gameCollection made in app.js
-    // this.boardView = null;
     $('#game-board').hide();
     $('#all-game-info').empty();
-    // this.listenTo(this.model, 'add', this.render);
-    // this.listenTo(this.boardView, 'refresh', this.render);
-    // this.listenTo(this.model, 'update', this.render());
   },
 
   events: {
@@ -56,31 +52,8 @@ const GameView = Backbone.View.extend({
   },
 
   render: function() {
-    //
-    // $('#all-game-info').empty();
-    // this.model.fetch().done(function(APIdata) {
-    //   APIdata.forEach(function(eachGame) {
-    //     console.log(eachGame);
-    //     $('#all-game-info').append(eachGame.id);
-    //     $('#all-game-info').append(eachGame.outcome);
-    //   });
-    // });
-  }
 
-  // createGameForCollection: function(game) {
-  // console.log("========END GAME TRIGGERED=======");
-  // // event.preventDefault();
-  //
-  // // Get the input data from the form and turn it into a contact
-  // // var rawGame = {
-  // //   board: flatten(game.gameBoard.state),
-  // //   players: [game.playerOne.get('name'), game.playerTwo.get('name')],
-  // //   outcome: game.gameOutcome
-  // // };
-  // //
-  // // //add the contact to our collection
-  // this.model.add(rawGame);
-// },
+  }
 });
 
 export default GameView;

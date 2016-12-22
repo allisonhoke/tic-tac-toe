@@ -1,8 +1,5 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
-// import _ from 'underscore';
-// import CellView from 'app/views/cell_view';
-//import the Board collection??
 
 const BoardView = Backbone.View.extend({
   initialize: function() {
@@ -39,8 +36,6 @@ const BoardView = Backbone.View.extend({
         };
 
         this.collection.create(rawGame);
-        this.trigger('refresh');
-        // this.trigger('endGame', this.model);
       }
       //change the player and increment turn counter
       this.model.togglePlayer();
@@ -58,7 +53,6 @@ const BoardView = Backbone.View.extend({
         };
 
         this.collection.create(rawGameDraw);
-        // this.trigger('endGame', this.model);
       }
 
     }
@@ -67,7 +61,7 @@ const BoardView = Backbone.View.extend({
   },
 
   render: function() {
-console.log("TRIGGERED");
+
   }
 });
 
