@@ -20,14 +20,7 @@ const Game = Backbone.Model.extend({
     this.gameOutcome = null;
     console.log("Created a new game with players: " + this.playerOne.name + " & " + this.playerTwo.name + " & board: " + this.gameBoard.state);
   },
-  // 
-  // checkForWin: function() {
-  //   if (this.gameBoard.checkWin()) {
-  //     this.won = true;
-  //     this.trigger('endGame', this);
-  //   }
-  // },
-
+  
   togglePlayer: function() {
     if (this.currentPlayer == this.playerOne) {
       this.currentPlayer = this.playerTwo;

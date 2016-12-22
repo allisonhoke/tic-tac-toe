@@ -10,7 +10,7 @@ const GameView = Backbone.View.extend({
     // this.boardView = null;
     $('#game-board').hide();
 
-    this.listenTo(this.boardView, 'endGame', this.createGameForCollection);
+    // this.listenTo(this.boardView, 'endGame', this.createGameForCollection);
   },
 
   events: {
@@ -37,20 +37,20 @@ const GameView = Backbone.View.extend({
     });
   },
 
-  createGameForCollection: function(game) {
-  console.log("========END GAME TRIGGERED=======");
-  // event.preventDefault();
-
-  // Get the input data from the form and turn it into a contact
-  // var rawGame = {
-  //   board: flatten(game.gameBoard.state),
-  //   players: [game.playerOne.get('name'), game.playerTwo.get('name')],
-  //   outcome: game.gameOutcome
-  // };
+  // createGameForCollection: function(game) {
+  // console.log("========END GAME TRIGGERED=======");
+  // // event.preventDefault();
   //
-  // //add the contact to our collection
+  // // Get the input data from the form and turn it into a contact
+  // // var rawGame = {
+  // //   board: flatten(game.gameBoard.state),
+  // //   players: [game.playerOne.get('name'), game.playerTwo.get('name')],
+  // //   outcome: game.gameOutcome
+  // // };
+  // //
+  // // //add the contact to our collection
   // this.model.add(rawGame);
-},
+// },
 });
 
 export default GameView;

@@ -1,4 +1,3 @@
-import Game from 'app/models/game';
 import GameView from 'app/views/game_view';
 import GameCollection from 'app/collections/game_collection';
 import $ from 'jquery';
@@ -16,6 +15,4 @@ $(document).ready(function() {
 
   var currentGame = new GameView(options);
   currentGame.render();
-
-  var applicationView = new GameCollectionView(
 });

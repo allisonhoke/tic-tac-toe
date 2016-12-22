@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
-import _ from 'underscore';
+// import _ from 'underscore';
 // import CellView from 'app/views/cell_view';
 //import the Board collection??
 
@@ -33,7 +33,7 @@ const BoardView = Backbone.View.extend({
         console.log("OUTCOME IS: " + this.model.gameOutcome);
 
         var rawGame = {
-          board: flatten(this.model.gameBoard.state),
+          board: [].concat.apply([], this.model.gameBoard.state),
           players: [this.model.playerOne.get('name'), this.model.playerTwo.get('name')],
           outcome: this.model.gameOutcome
         };
@@ -50,6 +50,13 @@ const BoardView = Backbone.View.extend({
         this.model.gameOutcome = "draw";
         console.log("OUTCOME IS: " + this.model.gameOutcome);
 
+        var rawGameDraw = {
+          board: [].concat.apply([], this.model.gameBoard.state),
+          players: [this.model.playerOne.get('name'), this.model.playerTwo.get('name')],
+          outcome: this.model.gameOutcome
+        };
+
+        this.collection.create(rawGameDraw);
         // this.trigger('endGame', this.model);
       }
 
