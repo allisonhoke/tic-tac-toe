@@ -9,20 +9,25 @@ const GameView = Backbone.View.extend({
     //this.model = gameCollection made in app.js
     // this.boardView = null;
     $('#game-board').hide();
-
-    // this.listenTo(this.boardView, 'endGame', this.createGameForCollection);
+    $('#all-game-info').empty();
+    // this.listenTo(this.model, 'add', this.render);
+    // this.listenTo(this.boardView, 'refresh', this.render);
+    // this.listenTo(this.model, 'update', this.render());
   },
 
   events: {
-    'click #new-game-button': 'createNewGame'
+    'click #new-game-button': 'createNewGame',
+    'click #show-games-button': 'showAllGames'
   },
 
   createNewGame: function() {
     $('#game-board').show();
+    $('#all-game-info').hide();
     // console.log("Created a new game");
     this.currentGame = new Game();
     // console.log(this.model.board.state);
     this.createNewBoard(this.currentGame, this.model);
+
   },
 
   createNewBoard: function(mod, coll) {
@@ -36,6 +41,31 @@ const GameView = Backbone.View.extend({
       $(this).empty();
     });
   },
+
+  showAllGames: function() {
+    $('#all-game-info').show();
+    $('#all-game-info').empty();
+    this.model.fetch().done(function(APIdata) {
+      APIdata.forEach(function(eachGame) {
+        console.log(eachGame);
+        $('#all-game-info').append("ID: " + eachGame.id);
+        $('#all-game-info').append("Players: " + eachGame.players);
+        $('#all-game-info').append("Winner: " + eachGame.outcome);
+      });
+    });
+  },
+
+  render: function() {
+    //
+    // $('#all-game-info').empty();
+    // this.model.fetch().done(function(APIdata) {
+    //   APIdata.forEach(function(eachGame) {
+    //     console.log(eachGame);
+    //     $('#all-game-info').append(eachGame.id);
+    //     $('#all-game-info').append(eachGame.outcome);
+    //   });
+    // });
+  }
 
   // createGameForCollection: function(game) {
   // console.log("========END GAME TRIGGERED=======");

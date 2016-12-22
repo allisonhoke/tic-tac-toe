@@ -39,6 +39,7 @@ const BoardView = Backbone.View.extend({
         };
 
         this.collection.create(rawGame);
+        this.trigger('refresh');
         // this.trigger('endGame', this.model);
       }
       //change the player and increment turn counter
@@ -66,7 +67,7 @@ const BoardView = Backbone.View.extend({
   },
 
   render: function() {
-
+console.log("TRIGGERED");
   }
 });
 

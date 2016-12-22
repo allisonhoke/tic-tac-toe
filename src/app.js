@@ -6,7 +6,7 @@ $(document).ready(function() {
   console.log("******PLAYING!!*****");
 
   var gameCollection = new GameCollection();
-  gameCollection.fetch();
+  // gameCollection.fetch();
 
   var options = {
     el: $('body'),
